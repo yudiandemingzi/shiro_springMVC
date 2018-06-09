@@ -1,0 +1,8 @@
+{
+   "menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "创建采购单","url" : "/purchasing/order/addOrder.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "提交采购单","url" : "/purchasing/order/orderList.action?type=1"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "部门经理审核","url" : "/purchasing/order/orderList.action?type=2"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "总经理审核","url" : "/purchasing/order/orderList.action?type=3"
+                 }]
+}
