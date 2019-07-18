@@ -11,25 +11,24 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * 
- * <p>Title: CustomExceptionResolver</p>
- * <p>Description: 自定义异常处理器</p>
- * <p>Company: www.itcast.com</p> 
- * @author	传智.燕青
- * @date	2015-3-22下午2:57:42
- * @version 1.0
+ * @Description: 自定义异常处理器
+ *
+ * @author xub
+ * @date 2019/7/18 上午11:47
  */
 public class CustomExceptionResolver implements HandlerExceptionResolver  {
 
-	//前端控制器DispatcherServlet在进行HandlerMapping、调用HandlerAdapter执行Handler过程中，如果遇到异常就会执行此方法
-	//handler最终要执行的Handler，它的真实身份是HandlerMethod
-	//Exception ex就是接收到异常信息
+	/**
+	 * 前端控制器DispatcherServlet在进行HandlerMapping、调用HandlerAdapter执行Handler过程中，如果遇到异常就会执行此方法
+	 * handler最终要执行的Handler，它的真实身份是HandlerMethod
+	 * Exception ex就是接收到异常信息
+	 */
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex) {
 		//输出异常
 		ex.printStackTrace();
-		
+
 		//统一异常处理代码
 		//针对系统自定义的CustomException异常，就可以直接从异常类中获取异常信息，将异常处理在错误页面展示
 		//异常信息
@@ -42,13 +41,13 @@ public class CustomExceptionResolver implements HandlerExceptionResolver  {
 			//针对非CustomException异常，对这类重新构造成一个CustomException，异常信息为“未知错误”
 			customException = new CustomException("未知错误");
 		}
-		
+
 		//错误 信息
 		message = customException.getMessage();
-		
+
 		request.setAttribute("message", message);
 
-		
+
 		try {
 			//转向到错误 页面
 			request.getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
@@ -59,7 +58,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return new ModelAndView();
 	}
 

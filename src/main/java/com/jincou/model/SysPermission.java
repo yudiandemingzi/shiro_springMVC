@@ -1,6 +1,12 @@
 package com.jincou.model;
 
-//权限资源表
+//
+/**
+ * @Description: 权限资源表
+ *
+ * @author xub
+ * @date 2018/7/18 上午11:45
+ */
 public class SysPermission implements java.io.Serializable{
 
 	private static final long serialVersionUID = 1L;

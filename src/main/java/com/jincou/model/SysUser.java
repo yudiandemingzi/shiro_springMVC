@@ -1,6 +1,12 @@
 package com.jincou.model;
 
 //用户登录表
+/**
+ * @Description: 用户登录表
+ *
+ * @author xub
+ * @date 2018/7/18 上午11:46
+ */
 public class SysUser {
     private String id;
 
